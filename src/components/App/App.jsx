@@ -59,7 +59,7 @@ const App = params => {
       setImages([]);
       setCurrentImage(null);
       setError('');
-      // this.state.images.length = 0;
+      images.length = 0;
     }
     setSearchQuery(newSearchQuery);
   };
