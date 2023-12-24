@@ -51,7 +51,7 @@ const App = params => {
         setError( error );
       })
       .finally(() => setIsLoading(false));
-  }, [images, searchQuery, currentPage]);
+  }, [searchQuery, currentPage]);
 
   const handleSearch = newSearchQuery => {
     if (newSearchQuery !== searchQuery) {
