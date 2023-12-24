@@ -20,8 +20,9 @@ const App = params => {
   const imgPerPage = 12;
 
   useEffect(() => {
-
-  if (!searchQuery) { return }
+    if (!searchQuery) {
+      return;
+    }
 
     setIsLoading(true);
     setIsLoadMoreHidden(true);
@@ -36,7 +37,7 @@ const App = params => {
         );
       })
       .then(data => {
-        setImages([...images, ...data.hits]);
+        setImages(prevImages => [...prevImages, ...data.hits]);
         setIsLoading(false);
 
         currentPage === Math.ceil(data.totalHits / imgPerPage)
@@ -48,7 +49,7 @@ const App = params => {
         }
       })
       .catch(error => {
-        setError( error );
+        setError(error.massege);
       })
       .finally(() => setIsLoading(false));
   }, [searchQuery, currentPage]);
@@ -59,7 +60,6 @@ const App = params => {
       setImages([]);
       setCurrentImage(null);
       setError('');
-      images.length = 0;
     }
     setSearchQuery(newSearchQuery);
   };
@@ -73,7 +73,7 @@ const App = params => {
   };
 
   const handleLoadMore = () => {
-    setCurrentPage(prevState => prevState + 1);
+    setCurrentPage(prevCurrentPage => prevCurrentPage + 1);
   };
 
   return (
