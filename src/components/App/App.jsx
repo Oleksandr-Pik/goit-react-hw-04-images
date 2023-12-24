@@ -13,11 +13,11 @@ const App = params => {
   const [currentPage, setCurrentPage] = useState(1);
   const [images, setImages] = useState([]);
   const [currentImage, setCurrentImage] = useState(null);
-  const [imgPerPage ] = useState(12);
   const [showModal, setShowModal] = useState(false);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [isLoadMoreHidden, setIsLoadMoreHidden] = useState(true);
+  const imgPerPage = 12;
 
   useEffect(() => {
 
